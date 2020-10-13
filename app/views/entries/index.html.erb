@@ -2,6 +2,14 @@
   Foodlog app &ndash; <%= DateTime.now.to_s(:nice_date) %>
 <% end %>
 
+<div>
+  <% total_cal = 0%>
+  <% @entries.each do |entry|%>
+    <% total_cal += entry.calories%>
+  <% end%>
+  <p>Total Calories</p><%= total_cal %>
+</div>
+
 <div class="columns mt-6 is-centered">
   <% @entries.each do |entry| %>
     <div class="column is-one-quarter">
