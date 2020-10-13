@@ -10,6 +10,10 @@
   <p>Total Calories</p><%= total_cal %>
 </div>
 
+<div>
+  <%= link_to 'Create new category', new_category_path %>
+</div>
+
 <div class="columns mt-6 is-centered">
   <% @entries.each do |entry| %>
     <div class="column is-one-quarter">
