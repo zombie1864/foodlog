@@ -4,7 +4,7 @@ class WorkoutsController < ApplicationController
   # GET /workouts
   # GET /workouts.json
   def index
-    @workouts = Workout.all
+    @workouts = Workout.where('created_at >= ?', Date.today)
   end
 
   # GET /workouts/1

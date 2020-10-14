@@ -1,11 +1,13 @@
 <% content_for :title do %>
   Foodlog app &ndash; <%= DateTime.now.to_s(:nice_date) %>
 <% end %>
-
 <div>
   <% total_cal = 0%>
   <% @entries.each do |entry|%>
     <% total_cal += entry.calories%>
+  <% end%>  
+  <% @workouts.each do |workout|%>
+    <% total_cal -= workout.calories%>
   <% end%>
   <p>Total Calories</p><%= total_cal %>
 </div>

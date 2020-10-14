@@ -5,6 +5,7 @@ class EntriesController < ApplicationController
   # GET /entries.json
   def index
     @entries = Entry.where('created_at >= ?', Date.today)
+    @workouts = Workout.where('created_at >= ?', Date.today)
   end
 
   # GET /entries/1
