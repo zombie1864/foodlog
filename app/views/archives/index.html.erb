@@ -35,4 +35,19 @@
           <% end %>
         <% end %>
     </div>
+        <div class="column is-half">
+        <% @workouts.each do |day, workouts| %>
+          <h3 class="is-size-4 has-text-weight-bold mb-4 has-text-centered">Workouts for <%= day %></h3>
+            <nav class="level is-mobile">
+                <div class="level-item has-text-centered">
+                    <p class="heading">Calories</p>
+                    <p class="title"> <%= workouts.pluck(:calories).sum %>kcal </p>
+                </div>                
+                <div class="level-item has-text-centered">
+                    <p class="heading">Duration</p>
+                    <p class="title"> <%= workouts.pluck(:duration).sum %>min </p>
+                </div>                
+            </nav>
+        <% end %>
+    </div>
 </div>
