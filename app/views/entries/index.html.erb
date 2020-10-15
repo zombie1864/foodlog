@@ -16,57 +16,59 @@
   <%= link_to 'Create new category', new_category_path %>
 </div>
 
-<div class="columns mt-6 is-centered">
-  <% @entries.each do |entry| %>
-    <div class="column is-one-quarter">
-      <div class="card">
-      <header class="card-header">
-        <p class="card-header-title">
-          <%= entry.meal_type %> - <%= entry.category.title if entry.category.present? %>
-        </p>
-      </header>
-      <div class="card-content">
-        <div class="content">
-          <p><span class = 'has-text-weight-bold'><%= entry.calories %></span> calories</p>
-          <p><span class = 'has-text-weight-bold'><%= entry.proteins %></span> grams of protien </p>
-          <p><span class = 'has-text-weight-bold'><%= entry.carbohydrates %></span> grams of carbohydrates</p>
-          <p><span class = 'has-text-weight-bold'><%= entry.fats %></span> grams of fats</p>
-          <p class="italic">logged <%= time_ago_in_words(entry.created_at) %> ago</p>
+<div class="index_of_foodlogs_and_workouts">
+  <div class="columns home_page_stats">
+    <% @entries.each do |entry| %>
+      <div class="column is-half">
+        <div class="card">
+        <header class="card-header">
+          <p class="card-header-title">
+            <%= entry.meal_type %> - <%= entry.category.title if entry.category.present? %>
+          </p>
+        </header>
+        <div class="card-content">
+          <div class="content">
+            <p><span class = 'has-text-weight-bold'><%= entry.calories %></span> calories</p>
+            <p><span class = 'has-text-weight-bold'><%= entry.proteins %></span> grams of protien </p>
+            <p><span class = 'has-text-weight-bold'><%= entry.carbohydrates %></span> grams of carbohydrates</p>
+            <p><span class = 'has-text-weight-bold'><%= entry.fats %></span> grams of fats</p>
+            <p class="italic">logged <%= time_ago_in_words(entry.created_at) %> ago</p>
+          </div>
+        </div>
+        <div class="card-footer">
+          <%= link_to 'Show', entry, class: 'card-footer-item' %>
+          <%= link_to 'Edit', edit_entry_path(entry), class: 'card-footer-item' %>
+          <%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' }, class: 'card-footer-item' %>
+        </div>
         </div>
       </div>
-      <div class="card-footer">
-        <%= link_to 'Show', entry, class: 'card-footer-item' %>
-        <%= link_to 'Edit', edit_entry_path(entry), class: 'card-footer-item' %>
-        <%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' }, class: 'card-footer-item' %>
-      </div>
-      </div>
-    </div>
-  <% end %>
-</div>
-<div class="columns mt-6 is-centered">
-  <% @workouts.each do |workout| %>
-    <div class="column is-one-quarter">
-      <div class="card">
-      <header class="card-header">
-        <p class="card-header-title">
-          Workout - stats 
-        </p>
-      </header>
-      <div class="card-content">
-        <div class="content">
-          <p><span class = 'has-text-weight-bold'><%= workout.calories %></span> calories</p>
-          <p><span class = 'has-text-weight-bold'><%= workout.duration %></span> Duration </p>
-          <p class="italic">logged <%= time_ago_in_words(workout.created_at) %> ago</p>
+    <% end %>
+  </div>
+  <div class="columns home_page_stats">
+    <% @workouts.each do |workout| %>
+      <div class="column is-half">
+        <div class="card">
+        <header class="card-header">
+          <p class="card-header-title">
+            Workout - stats 
+          </p>
+        </header>
+        <div class="card-content">
+          <div class="content">
+            <p><span class = 'has-text-weight-bold'><%= workout.calories %></span> calories</p>
+            <p><span class = 'has-text-weight-bold'><%= workout.duration %></span> Duration </p>
+            <p class="italic">logged <%= time_ago_in_words(workout.created_at) %> ago</p>
+          </div>
+        </div>
+        <div class="card-footer">
+          <%= link_to 'Show', workout, class: 'card-footer-item' %>
+          <%= link_to 'Edit', edit_workout_path(workout), class: 'card-footer-item' %>
+          <%= link_to 'Destroy', workout, method: :delete, data: { confirm: 'Are you sure?' }, class: 'card-footer-item' %>
+        </div>
         </div>
       </div>
-      <div class="card-footer">
-        <%= link_to 'Show', workout, class: 'card-footer-item' %>
-        <%= link_to 'Edit', edit_workout_path(workout), class: 'card-footer-item' %>
-        <%= link_to 'Destroy', workout, method: :delete, data: { confirm: 'Are you sure?' }, class: 'card-footer-item' %>
-      </div>
-      </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
 
 <div class="columns is-centered mt-6">
