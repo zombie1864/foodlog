@@ -18,3 +18,13 @@
 .card {
     width: 1000px;
 }
+
+.total_cal {
+    z-index: 1;
+    color: black;
+}
+
+body {
+    background: linear-gradient(180deg,rgba(6,12,6,.75),rgba(93, 164, 211, 0.9)); 
+    z-index: -1;
+}
